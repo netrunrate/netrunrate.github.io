@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>NRR Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
+</head>
+<div id="namediv">
+    <h1 id="head">Net Run Rate Calculator</h1>
+</div>
+<body>
+  <form name="NRRDATA" id ="nrr" onkeyup="handleform()">
+     <label for="Teamruns" id="lb">Enter Runs Scored By The Team</label> 
+    <input type="number" id="Teamruns" name="Teamruns"> 
+    <label for="Teamovers" id="lb">Enter Overs Played By The Team</label> 
+    <input type="number" id="Teamovers" name="Teamovers">
+    <label for="Runsagainst" id="lb">Enter Runs Conceded By The Team</label>
+    <input type="number" id="Runsagainst" name="Runsagainst">
+     <label for="Oversagainst" id="lb">Enter Overs Bowled By The Team</label>
+     <input type="number" id="Oversagainst" name="Oversagainst">
+  </form>
+  <p id="result"></p>
+ <h1 id="compare">Scenario Creator</h1> 
+
+ <form name="TeamAData" id ="teama">
+     <p id="teamaannouncement">Team A</p>
+     <label for ="teamaruns" id="left">Enter Runs Scored By Team A</label> 
+     <input type="number" id="lefti" name="teamaruns">
+     
+     <label for ="teamaovers" id="left">Enter Overs Played By Team A</label> 
+     <input type="number" id="lefti" name="teamaovers">
+     <label for ="teamarunsagainst" id="left">Enter Runs Conceded By Team A</label> 
+     <input type="number" id="lefti" name="teamarunsagainst">
+     <label for ="teamaoversagainst" id="left">Enter Overs Bowled By Team A</label> 
+     <input type="number" id="lefti" name="teamaoversagainst">
+     <p id="teambannouncement">Team B</p>
+     <label for ="teambruns" id="right">Enter Runs Scored By Team B </label> 
+     <input type="number" id="righti" name="teambruns">
+     <label for ="teambovers" id="right">Enter Overs Played By Team B </label> 
+     <input type="number" id="righti" name="teambovers" >
+     <label for ="teambrunsagainst" id="right">Enter Runs Conceded By Team B</label> 
+     <input type="number" id="righti" name="teambrunsagainst">
+     <label for ="teamboversagainst" id="right">Enter Overs Bowled By Team B </label> 
+     <input type="number" id="righti" name="teamboversagainst">
+    
+     
+     <label for ="playingAgainst">Playing against each other?</label>
+     <input type="checkbox" id="checkmark" name="checkmark"><br>
+     <label for ="TotalOvers">Enter the overs that a team plays in an inning for example 50 in ODIs </label> 
+     <input type="number" id="TotalOversinput" name="TotalOvers" placeholder="Enter the overs that a team plays in an inning for example 50 in ODIs">
+  </form>
+  <form name="Target"  onkeyup="handlecompare()">
+      <label for="target" id="target">Enter the Target (Runs)</label>
+      <input type="number" id="target" name="target"> 
+  </form>
+  <p id="ifteamabatfirst"></p>
+  <p id="ifteamabowlfirst"></p>
+  <p id="comparison"></p>
+ 
+</body>
+  <footer class="footer">
+      <p>Made by Khawer</p>
+      
+  </footer>
+</html>
