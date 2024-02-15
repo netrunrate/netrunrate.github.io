@@ -30,7 +30,7 @@ body {
 #head {
     font-size: 5vw;
 }
-#lb {
+label {
     font-size: 4vw;
 }
 #namediv {
@@ -64,11 +64,6 @@ input[type=number] {
   letter-spacing: 1px;
   padding: 1% 2%;
   transition: all 0.3s ease-in-out;
-}
-#teama{
-    width: 100%;
-    display: table-cell;
-    
 }
 
 input[type=number]:hover {
