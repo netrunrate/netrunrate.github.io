@@ -13,7 +13,7 @@
     <h1 id="head">Net Run Rate Calculator</h1>
 </div>
 <body onload="loadValues()" >
-  <form name="NRRDATA" id ="nrr" onkeyup="handleform()" onkeyup="formonestoreValues()">
+  <form name="NRRDATA" id ="nrr" onkeyup="handleform();formonestoreValues()">
      <label for="Teamruns" id="lb">Enter Runs Scored By The Team</label> 
     <input type="number" id="Teamruns" name="Teamruns"> 
     <label for="Teamovers" id="lb">Enter Overs Played By The Team</label> 
@@ -26,7 +26,7 @@
   <p id="result"></p>
  <h1 id="compare">Scenario Creator</h1> 
 
- <form name="TeamAData" id ="teama"  onkeyup="handlecompare()" onkeyup="formtwostoreValues()">>
+ <form name="TeamAData" id ="teama"  onkeyup="handlecompare();formtwostoreValues()">>
      <p id="teamaannouncement">Team A</p>
      <label for ="teamaruns" id="left">Enter Runs Scored By Team A</label> 
      <input type="number" id="lefti" name="teamaruns">
