@@ -139,7 +139,7 @@ for (var i = 0; i < form.elements.length; i++) {
                 
                 break
             } else {
-            outp= "If Team A bats first and gives the target of " + (target+1).toString() + " Then they will have to stop the opposing team in order get their NRR abover Team B before " + run.toString() 
+            outp= "If Team A bats first and gives the target of " + (parseInt(target)+1).toString() + " Then they will have to stop the opposing team in order get their NRR abover Team B before " + run.toString() 
             document.getElementById("ifteamabatfirst").innerHTML = outp
             stopvalueifbatfirst += run
             break;}
@@ -157,7 +157,7 @@ for (var i = 0; i < form.elements.length; i++) {
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             if (TeamANRR > TeamBNRR) {
             stopvalueifbowlfirst += parseFloat(calculateBallsToOvers(totaloverstoball))
-            document.getElementById("ifteamabowlfirst").innerHTML = "If Team A bowl first then they will chase the target of " + (target+1).toString() + " in " +parseFloat(calculateBallsToOvers(totaloverstoball)).toString() 
+            document.getElementById("ifteamabowlfirst").innerHTML = "If Team A bowl first then they will chase the target of " + (parseInt(target)+1).toString() + " in " +parseFloat(calculateBallsToOvers(totaloverstoball)).toString() 
             break;
             } else{
                 document.getElementById("ifteamabowlfirst").innerHTML= "If Team A bowls first then it will not be possible get over Team B's NRR"
@@ -179,7 +179,7 @@ for (var i = 0; i < form.elements.length; i++) {
              if (TeamANRR > TeamBNRR) {
            
             stopvalueifbatfirst1 += run
-            outp= "If Team A bats first and gives the target of " + (target+1).toString() + " Then they will have to stop the opposing team in order get their NRR abover Team B before " + run.toString() 
+            outp= "If Team A bats first and gives the target of " + (parseInt(target)+1).toString() + " Then they will have to stop the opposing team in order get their NRR abover Team B before " + run.toString() 
             document.getElementById("ifteamabatfirst").innerHTML = outp
             console.log("Breaked at" + run)
             break;
@@ -198,7 +198,7 @@ for (var i = 0; i < form.elements.length; i++) {
             TeamBNRR = calculateNetRunRate(TeamBRuns, TeamBOvers, TeamBRunsAgainst, TeamBOversAgainst)
             if (TeamANRR > TeamBNRR) {
             stopvalueifbowlfirst1 += parseFloat(calculateBallsToOvers(totaloverstoball))
-            document.getElementById("ifteamabowlfirst").innerHTML = "If Team A bowl first then they will chase the target of " + (target+1).toString() + " in " +parseFloat(calculateBallsToOvers(totaloverstoball)).toString() 
+            document.getElementById("ifteamabowlfirst").innerHTML = "If Team A bowl first then they will chase the target of " + (parseInt(target)+1).toString() + " in " +parseFloat(calculateBallsToOvers(totaloverstoball)).toString() 
             break;
             }else{
                 document.getElementById("ifteamabowlfirst").innerHTML = "If Team A bowl first then it will not be possible to get over Team B's NRR"
