@@ -210,15 +210,15 @@ for (var i = 0; i < form.elements.length; i++) {
 }
 }
 function setCookie(name, value, expiredays) {
-  var exdate = new Date();
-  exdate.setDate(exdate.getDate() + expiredays);
-  document.cookie = name + "=" + escape(value) + "; path=/; expires=" + exdate.toGMTString();
+  // Use localStorage.setItem to store the value with the name as the key
+  localStorage.setItem(name, value);
 }
+
 function getCookie(name) {
-  var re = new RegExp(name + "=([^;]+)");
-  var value = re.exec(document.cookie);
-  return (value != null) ? unescape(value[1]) : null;
+  // Use localStorage.getItem to retrieve the value with the name as the key
+  return localStorage.getItem(name);
 }
+
 function formonestoreValues() {
   form = document.forms["NRRDATA"]
   for (var i = 0; i < form.elements.length; i++) {
@@ -231,27 +231,34 @@ function formonestoreValues() {
         var fieldValue = element.value;
         if (fieldValue !== ""){
             setCookie(fieldName, fieldValue, 3)
+            console.log("Set local storage of " + fieldName + "To " + fieldValue)
         }
     }
+  }
 }
-  return true; // return true to submit the form
-}
+
 function formtwostoreValues() {
   form = document.forms["TeamAData"]
   for (var i = 0; i < form.elements.length; i++) {
     var element = form.elements[i];
 
     // Check if the element is not a button or a fieldset
-    if (element.type !== "button" && element.type !== "fieldset") {
+    if (element.type !== "fieldset") {
         // Access the field name and value
         var fieldName = element.name;
         var fieldValue = element.value;
-        if (fieldValue !== ""){
+        
+        if (fieldName == "checkmark"){
+            setCookie(fieldName, element.checked, 3)
+            
+        }
+        if (fieldValue !== "" && fieldName !== "checkmark"){
             setCookie(fieldName, fieldValue, 3)
         }
     }
+  }
 }
- }
+
 function loadValues(){
     form1 = document.forms["NRRDATA"]
     form2 = document.forms["TeamAData"]
@@ -260,6 +267,34 @@ function loadValues(){
 
     // Check if the element is not a button or a fieldset
     if (element.type !== "button" && element.type !== "fieldset") {
+        // Access the field name and value
+        var fieldName = element.name;
+        var fieldValue = getCookie(fieldName);
+        if (fieldValue){
+            element.value = fieldValue
+        }
+    }
+  }
+    for (var i = 0; i < form2.elements.length; i++) {
+    var element = form2.elements[i];
+
+    // Check if the element is not a button or a fieldset
+    if (element.type !== "fieldset") {
+        // Access the field name and value
+        var fieldName = element.name;
+        var fieldValue = getCookie(fieldName);
+        if (element.name == "checkmark"){
+            if (fieldValue=="true"){
+                element.click();
+            }
+        }
+        console.log(fieldName, fieldValue)
+        if (fieldValue){
+            element.value = fieldValue
+        }
+    }
+    
+}}
         // Access the field name and value
         var fieldName = element.name;
         var fieldValue = getCookie(fieldName);
