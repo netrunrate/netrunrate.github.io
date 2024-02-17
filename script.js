@@ -1,3 +1,4 @@
+import 'https://tomashubelbauer.github.io/github-pages-local-storage/index.js';
 function calculateNetRunRate(teamRuns, teamOvers, opponentRuns, opponentOvers) {
   // Handle decimal part of overs
   teamRuns = teamRuns.toString(), teamOvers = teamOvers.toString(), opponentRuns= opponentRuns.toString(),opponentOvers= opponentOvers.toString()
