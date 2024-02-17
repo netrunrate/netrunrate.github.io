@@ -296,25 +296,3 @@ function loadValues(){
     }
     
 }}
-        // Access the field name and value
-        var fieldName = element.name;
-        var fieldValue = getCookie(fieldName);
-        if (fieldValue){
-            element.value = fieldValue
-        }
-    }
-}
-    for (var i = 0; i < form2.elements.length; i++) {
-    var element = form2.elements[i];
-
-    // Check if the element is not a button or a fieldset
-    if (element.type !== "button" && element.type !== "fieldset") {
-        // Access the field name and value
-        var fieldName = element.name;
-        var fieldValue = getCookie(fieldName);
-        if (fieldValue){
-            element.value = fieldValue
-        }
-    }
-    
-}}
