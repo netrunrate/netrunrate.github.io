@@ -212,12 +212,12 @@ for (var i = 0; i < form.elements.length; i++) {
 }
 function setCookie(name, value, expiredays) {
   // Use localStorage.setItem to store the value with the name as the key
-  sessionStorage.setItem(name, value);
+  localStorage.setItem(name, value);
 }
 
 function getCookie(name) {
   // Use localStorage.getItem to retrieve the value with the name as the key
-  return sessionStorage.getItem(name);
+  return localStorage.getItem(name);
 }
 
 function formonestoreValues() {
