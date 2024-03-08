@@ -30,7 +30,7 @@ var form = document.forms["NRRDATA"];
 
 for (var i = 0; i < form.elements.length; i++) {
     var field = form.elements[i];
-    if (field.type === "button"){
+    if (field.type == "button"){
       continue;
     }
     if (field.value === "") {
