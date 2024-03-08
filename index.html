@@ -57,9 +57,31 @@
       <input type="number" id="target" name="target"> <br>
 
   </form>
-        <button id="comparebutton" onclick="handlecompare()">Lets Get The Scenarios</button>
+        <button id="comparebutton" onclick="handlecompare();handletables()">Lets Get The Scenarios</button>
   <p id="ifteamabatfirst"></p>
+    <button onclick="showbowlfDiv()" id="bt">Show Table +</button>
+
+  <div id="batfirsttable" style="display:none;">
+    <table id="batftable">
+      <tr>
+        <th>Runs Scored By Team B</th>
+        <th>Team A NRR</th>
+        <th>Team B NRR</th>
+      </tr>
+    </table>
+  </div>
+
   <p id="ifteamabowlfirst"></p>
+  <button onclick="showbowlfDiv()" id="bl">Show Table +</button>
+    <div id="bowlfirsttable" style="display:none;">
+    <table id="bowlftable">
+      <tr>
+        <th>Chased in by Team A</th>
+        <th>Team A NRR</th>
+        <th>Team B NRR</th>
+      </tr>
+    </table>
+  </div>
 </body>
   <footer class="footer">
       <p>Made by Khawer</p>
