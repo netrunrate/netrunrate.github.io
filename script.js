@@ -213,6 +213,123 @@ for (var i = 0; i < form.elements.length; i++) {
  }
 }
 }
+function handletables() {
+   mytbl = document.getElementById("batftable")
+    mytbl.getElementsByTagName("tbody")[0].innerHTML= mytbl.rows[0].innerHTML
+    form2 = document.forms["TeamAData"]
+    target = form2["target"].value
+    var form = document.forms["TeamAData"];
+    form = document.forms["TeamAData"]
+    TeamARuns = form["teamaruns"].value, TeamAOvers = form["teamaovers"].value, TeamARunsAgainst = form["teamarunsagainst"].value, TeamAOversAgainst=form["teamaoversagainst"].value
+    TeamBRuns = form["teambruns"].value;
+    TeamBOvers = form["teambovers"].value;
+    TeamBRunsAgainst = form["teambrunsagainst"].value;
+    TeamBOversAgainst = form["teamboversagainst"].value;
+    totalovers = form["TotalOvers"].value
+    var checkbox = document.getElementById("checkmark");
+    //console.log(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
+    TeamANRR = calculateNetRunRate(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
+    TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsAgainst, TeamBOversAgainst)
+    if(TeamANRR > TeamBNRR) {
+      return
+    }else {
+      
+    if(checkbox.checked) {
+        form2 = document.forms["TeamAData"]
+        target = form2["target"].value
+        if(target =="") {
+            return 
+        }
+        batfTeamARuns= parseInt(TeamARuns) + parseInt(target), batfTeamAOvers = parseFloat(TeamAOvers) + parseFloat(totalovers), batfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers), batfTeamARunsAgainst = parseInt(TeamARunsAgainst)
+        bowlfTeamBRuns = parseInt(TeamBRuns) , bowlfTeamBOvers= parseFloat(TeamBOvers) + parseFloat(totalovers), bowlfTeamBRunsAgainst = parseInt(TeamBRunsAgainst) + parseInt(target), bowlfTeamBOversAgainst= parseFloat(TeamBOversAgainst) + parseFloat(totalovers)
+        runs = parseInt(target) +1
+        stopvalueifbatfirst = ""
+
+        while (runs > 0){
+        run = runs
+            TeamANRR = calculateNetRunRate(batfTeamARuns, batfTeamAOvers ,  batfTeamARunsAgainst + run, batfTeamAOversAgainst)
+            TeamBNRR  = calculateNetRunRate(bowlfTeamBRuns + run, bowlfTeamBOvers , bowlfTeamBRunsAgainst, bowlfTeamBOversAgainst)
+            table = document.getElementById("batftable")
+            row = table.insertRow(-1)
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML= runs
+            cell2.innerHTML= TeamANRR.toFixed(3)
+            cell3.innerHTML=TeamBNRR.toFixed(3)
+            if (runs === 0){
+              break;
+            }
+            runs --;
+        }
+        bowlfTeamARuns = parseInt(TeamARuns) + parseInt(target)+1, bowlfTeamAOvers = parseFloat(TeamAOvers), bowlfTeamARunsAgainst  = parseInt(TeamARunsAgainst) + parseInt(target), bowlfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers)
+        batfTeamBRuns = parseInt(TeamBRuns) + parseInt(target), batfTeamBOvers = parseFloat(TeamBOvers) + parseFloat(totalovers), batfTeamBRunsagainst = parseInt(TeamBRunsAgainst) + parseInt(target)+1, batfTeamBOversAgainst = parseFloat(TeamBOversAgainst)
+        totaloverstoballs = oversToBalls(parseFloat(totalovers))
+        stopvalueifbowlfirst = ""
+        while (totaloverstoballs > 0){
+        totaloverstoball = totaloverstoballs
+            TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
+            console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
+            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball))
+            table = document.getElementById("bowlftable")
+            
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML= calculateBallsToOvers(totaloverstoball)
+            cell2.innerHTML= TeamANRR.toFixed(3)
+            cell3.innerHTML=TeamBNRR.toFixed(3)
+            if (totaloverstoballs === 0){ break;}
+            totaloverstoballs --;
+        }
+      //
+      //document.getElementById("comparison").innerHTML = `If Team A bats first and gives the target of ${target}then they will need to stop the Team B to ${stopvalueifbatfirst}!<br>If Team A bowls first they will need to chase this target of ${target} in ${stopvalueifbowlfirst}!` 
+    } else{
+        batfTeamARuns= parseInt(TeamARuns) + parseInt(target), batfTeamAOvers = parseFloat(TeamAOvers) + parseFloat(totalovers), batfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers), batfTeamARunsAgainst = parseInt(TeamARunsAgainst)
+        runs = parseInt(target) +1
+        stopvalueifbatfirst1 = "Not Possible"
+        while (runs > 0){
+        run = runs
+            TeamANRR = calculateNetRunRate(batfTeamARuns, batfTeamAOvers ,  batfTeamARunsAgainst + run, batfTeamAOversAgainst)
+            TeamBNRR  = calculateNetRunRate(bowlfTeamBRuns + run, bowlfTeamBOvers , bowlfTeamBRunsAgainst, bowlfTeamBOversAgainst)
+            table = document.getElementById("batftable")
+            row = table.insertRow(-1)
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML= runs
+            cell2.innerHTML= TeamANRR.toFixed(3)
+            cell3.innerHTML=TeamBNRR.toFixed(3)
+            if (runs === 0){
+              break;
+            }
+            runs --;
+        }
+        
+        
+    
+        bowlfTeamARuns = parseInt(TeamARuns) + parseInt(target)+1, bowlfTeamAOvers = parseFloat(TeamAOvers), bowlfTeamARunsAgainst  = parseInt(TeamARunsAgainst) + parseInt(target), bowlfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers)
+        totaloverstoballs = oversToBalls(parseFloat(totalovers))
+        stopvalueifbowlfirst1 = ""
+        while (totaloverstoballs > 0){
+        totaloverstoball = totaloverstoballs
+            TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
+            console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
+            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball))
+            table = document.getElementById("bowlftable")
+            
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML= calculateBallsToOvers(totaloverstoball)
+            cell2.innerHTML= TeamANRR.toFixed(3)
+            cell3.innerHTML=TeamBNRR.toFixed(3)
+            if (totaloverstoballs === 0){ break;}
+            totaloverstoballs --;
+        }
+           //document.getElementById("comparison").innerHTML = `If Team A bats first and gives the target of ${target} then they will need to stop the Opposing Team to ${stopvalueifbatfirst1}!<br>If Team A bowls first they will need to chase this target of ${target} in ${stopvalueifbowlfirst1}!`
+}
+ }
+}
+
 function setCookie(name, value, expiredays) {
   // Use localStorage.setItem to store the value with the name as the key
   localStorage.setItem(name, value);
@@ -299,3 +416,21 @@ function loadValues(){
     }
     
 }}
+function showbatfDiv() {
+  if (document.getElementById('batfirsttable').style.display === "block"){
+    document.getElementById('batfirsttable').style.display = "none";
+    document.getElementById('bt').innerText = "Show Table +"
+    
+  }else{
+    document.getElementById('bt').innerText = "Hide Table -"
+   document.getElementById('batfirsttable').style.display = "block";}
+}
+function showbowlfDiv() {
+  if (document.getElementById('bowlfirsttable').style.display === "block"){
+    document.getElementById('bowlfirsttable').style.display = "none";
+    document.getElementById('bl').innerText = "Show Table +"
+  }else{
+    
+  document.getElementById('bl').innerText = "Hide Table -"
+   document.getElementById('bowlfirsttable').style.display = "block";}
+}
