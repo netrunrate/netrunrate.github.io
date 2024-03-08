@@ -118,6 +118,7 @@ for (var i = 0; i < form.elements.length; i++) {
     TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsAgainst, TeamBOversAgainst)
     if(TeamANRR > TeamBNRR) {
         document.getElementById("ifteamabatfirst").innerHTML = "Team As NRR is already better than Team B's"
+          document.getElementById("ifteamabowlfirst").innerHTML = ""
     }else {
       
     if(checkbox.checked) {
