@@ -30,8 +30,10 @@ var form = document.forms["NRRDATA"];
 
 for (var i = 0; i < form.elements.length; i++) {
     var field = form.elements[i];
-
-    if (field.value === "" && field.type !== "button") {
+    if (field.type === "button"){
+      continue;
+    }
+    if (field.value === "") {
         field.style.border = "2px solid red";
         field.style.borderRadius = "15px";
         return; // or handle the validation error in another way
