@@ -17,11 +17,11 @@
      <label for="Teamruns" id="lb">Enter Runs Scored By The Team</label> 
     <input type="number" id="Teamruns" name="Teamruns"> 
     <label for="Teamovers" id="lb">Enter Overs Played By The Team</label> 
-    <input type="number" id="Teamovers" name="Teamovers">
+    <input type="number" step="0.1" id="Teamovers" name="Teamovers">
     <label for="Runsagainst" id="lb">Enter Runs Conceded By The Team</label>
     <input type="number" id="Runsagainst" name="Runsagainst">
      <label for="Oversagainst" id="lb">Enter Overs Bowled By The Team</label>
-     <input type="number" id="Oversagainst" name="Oversagainst">
+     <input type="number" step="0.1" id="Oversagainst" name="Oversagainst">
   </form>
   <p id="result"></p>
  <h1 id="compare">Scenario Creator</h1> 
@@ -32,20 +32,20 @@
      <input type="number" id="lefti" name="teamaruns">
      
      <label for ="teamaovers" id="left">Enter Overs Played By Team A</label> 
-     <input type="number" id="lefti" name="teamaovers">
+     <input type="number" step="0.1" id="lefti" name="teamaovers">
      <label for ="teamarunsagainst" id="left">Enter Runs Conceded By Team A</label> 
      <input type="number" id="lefti" name="teamarunsagainst">
      <label for ="teamaoversagainst" id="left">Enter Overs Bowled By Team A</label> 
-     <input type="number" id="lefti" name="teamaoversagainst">
+     <input type="number" step="0.1" id="lefti" name="teamaoversagainst">
      <p id="teambannouncement">Team B</p>
      <label for ="teambruns" id="right">Enter Runs Scored By Team B </label> 
      <input type="number" id="righti" name="teambruns">
      <label for ="teambovers" id="right">Enter Overs Played By Team B </label> 
-     <input type="number" id="righti" name="teambovers" >
+     <input type="number" step="0.1" id="righti" name="teambovers" >
      <label for ="teambrunsagainst" id="right">Enter Runs Conceded By Team B</label> 
-     <input type="number" id="righti" name="teambrunsagainst">
+     <input type="number"  id="righti" name="teambrunsagainst">
      <label for ="teamboversagainst" id="right">Enter Overs Bowled By Team B </label> 
-     <input type="number" id="righti" name="teamboversagainst">
+     <input type="number" step="0.1" id="righti" name="teamboversagainst" >
     
      
      <label for ="playingAgainst">Playing against each other?</label>
@@ -60,7 +60,6 @@
   <p id="ifteamabatfirst"></p>
   <p id="ifteamabowlfirst"></p>
   <p id="comparison"></p>
- 
 </body>
   <footer class="footer">
       <p>Made by Khawer</p>
