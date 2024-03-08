@@ -270,7 +270,7 @@ function handletables() {
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
-            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball))
+            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
             
             var cell2 = row.insertCell(1);
@@ -314,7 +314,7 @@ function handletables() {
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
-            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball))
+            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
             
             var cell2 = row.insertCell(1);
@@ -358,27 +358,24 @@ function formonestoreValues() {
   }
 }
 
-function formtwostoreValues() {
-  form = document.forms["TeamAData"]
+function formonestoreValues() {
+  form = document.forms["NRRDATA"]
   for (var i = 0; i < form.elements.length; i++) {
     var element = form.elements[i];
 
     // Check if the element is not a button or a fieldset
-    if (element.type !== "fieldset") {
+    if (element.type !== "button" && element.type !== "fieldset") {
         // Access the field name and value
         var fieldName = element.name;
         var fieldValue = element.value;
-        
-        if (fieldName == "checkmark"){
-            setCookie(fieldName, element.checked, 3)
-            
-        }
-        if (fieldValue !== "" && fieldName !== "checkmark"){
+        if (fieldValue !== ""){
             setCookie(fieldName, fieldValue, 3)
+            console.log("Set local storage of " + fieldName + "To " + fieldValue)
         }
     }
   }
 }
+
 
 function loadValues(){
     form1 = document.forms["NRRDATA"]
