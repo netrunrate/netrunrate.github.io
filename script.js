@@ -201,7 +201,7 @@ function handletables() {
    mytbl = document.getElementById("batftable")
     mytbl.getElementsByTagName("tbody")[0].innerHTML= mytbl.rows[0].innerHTML
     mytb = document.getElementById("bowlftable")
-    mytb.getElementsByTagName("tbody")[0].innerHTML
+    mytb.getElementsByTagName("tbody")[0].innerHTML = mytb.rows[0].innerHTML
     form2 = document.forms["TeamAData"]
     target = form2["target"].value
     var form = document.forms["TeamAData"];
