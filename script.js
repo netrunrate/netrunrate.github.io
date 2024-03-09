@@ -16,8 +16,7 @@ function calculateNetRunRate(teamRuns, teamOvers, opponentRuns, opponentOvers) {
   opponentOversDecimal = String(opponentOversDecimal/6).split(".")[1];
   teamOvers = parseFloat((String(teamOvers).split(".")[0])+ "." + String(teamOversDecimal))
   opponentOvers = parseFloat((String(opponentOvers).split(".")[0]) + "." + String(opponentOversDecimal))
-  //console.log(opponentOvers, teamOvers)
-  // Calculate net run rate
+
   const netRunRate = (teamRuns / teamOvers) - (opponentRuns / opponentOvers);
 
   // Return formatted net run rate
@@ -67,11 +66,6 @@ function calculateBallsToOvers(balls) {
   // Return result as a string
   return `${wholeOvers}.${remainingBalls}`;
 }
-
-// Example usage
-let balls = 34;
-let result = calculateBallsToOvers(balls);
-console.log(result); // Output: 7 overs and 1 ball
 function oversToBalls(overs) {
   // Split the overs into whole and fractional parts
   let parts = overs.toString().split(".");
@@ -81,12 +75,7 @@ function oversToBalls(overs) {
   let balls = whole * 6 + fraction;
   // Return the result as a number
   return balls;
-}
-
-
-// Example usage
-let overs = 5.4; // Can handle decimal overs
-let ball = oversToBalls(overs);//console.log(ball); // Output: 42.6 (decimal due to decimal input)
+}// Example usage
 function handlecompare() {
   document.getElementById('bl').style.display = "inline-block";
   document.getElementById('bt').style.display = "inline-block";
@@ -115,7 +104,6 @@ for (var i = 0; i < form.elements.length; i++) {
     TeamBOversAgainst = form["teamboversagainst"].value;
     totalovers = form["TotalOvers"].value
     var checkbox = document.getElementById("checkmark");
-    //console.log(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
     TeamANRR = calculateNetRunRate(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
     TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsAgainst, TeamBOversAgainst)
     if(TeamANRR > TeamBNRR) {
@@ -158,7 +146,6 @@ for (var i = 0; i < form.elements.length; i++) {
         while (totaloverstoballs > 0){
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
-            console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             if (TeamANRR > TeamBNRR) {
             stopvalueifbowlfirst += parseFloat(calculateBallsToOvers(totaloverstoball))
@@ -178,7 +165,6 @@ for (var i = 0; i < form.elements.length; i++) {
         while (runs >0){
             run = runs
             TeamANRR = calculateNetRunRate(batfTeamARuns, batfTeamAOvers, batfTeamARunsAgainst + run, batfTeamAOversAgainst)
-            console.log(TeamANRR)
             //document.getElementById("comparison").innerHTML =TeamANRR
             TeamBNRR = calculateNetRunRate(TeamBRuns, TeamBOvers, TeamBRunsAgainst, TeamBOversAgainst)
              if (TeamANRR > TeamBNRR) {
@@ -186,14 +172,10 @@ for (var i = 0; i < form.elements.length; i++) {
             stopvalueifbatfirst1 += run
             outp= "If Team A bats first and gives the target of " + (parseInt(target)+1).toString() + " Then they will have to stop the opposing team in order get their NRR abover Team B before " + run.toString() 
             document.getElementById("ifteamabatfirst").innerHTML = outp
-            console.log("Breaked at" + run)
             break;
         } else {
             document.getElementById("ifteamabatfirst").innerHTML = "If Team A bats first then it will not be possible to get over Team B's NRR"
         }runs --;
-        
-        
-    
         bowlfTeamARuns = parseInt(TeamARuns) + parseInt(target)+1, bowlfTeamAOvers = parseFloat(TeamAOvers), bowlfTeamARunsAgainst  = parseInt(TeamARunsAgainst) + parseInt(target), bowlfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers)
         totaloverstoballs = oversToBalls(parseFloat(totalovers))
         stopvalueifbowlfirst1 = ""
@@ -231,7 +213,6 @@ function handletables() {
     TeamBOversAgainst = form["teamboversagainst"].value;
     totalovers = form["TotalOvers"].value
     var checkbox = document.getElementById("checkmark");
-    //console.log(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
     TeamANRR = calculateNetRunRate(TeamARuns,TeamAOvers,TeamARunsAgainst, TeamAOversAgainst)
     TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsAgainst, TeamBOversAgainst)
     if(TeamANRR > TeamBNRR) {
@@ -273,7 +254,6 @@ function handletables() {
         while (totaloverstoballs > 0){
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
-            console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
             row = table.insertRow(-1)
@@ -293,13 +273,12 @@ function handletables() {
         while (runs > 0){
         run = runs
             TeamANRR = calculateNetRunRate(batfTeamARuns, batfTeamAOvers ,  batfTeamARunsAgainst + run, batfTeamAOversAgainst)
-            TeamBNRR  = calculateNetRunRate(TeamBRuns + run, TeamBOvers , TeamBRunsAgainst, TeamBOversAgainst)
+            TeamBNRR  = calculateNetRunRate(TeamBRuns, TeamBOvers , TeamBRunsAgainst, TeamBOversAgainst)
             table = document.getElementById("batftable")
             row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
-            console.log("Adding")
             cell1.innerHTML= runs
             cell2.innerHTML= TeamANRR.toFixed(3)
             cell3.innerHTML=TeamBNRR.toFixed(3)
@@ -308,17 +287,13 @@ function handletables() {
             }
             runs --;
         }
-        
-        
-    
         bowlfTeamARuns = parseInt(TeamARuns) + parseInt(target)+1, bowlfTeamAOvers = parseFloat(TeamAOvers), bowlfTeamARunsAgainst  = parseInt(TeamARunsAgainst) + parseInt(target), bowlfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers)
         totaloverstoballs = oversToBalls(parseFloat(totalovers))
         stopvalueifbowlfirst1 = ""
         while (totaloverstoballs > 0){
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
-            console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
-            TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsagainst,TeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
+            TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsAgainst,TeamBOversAgainst)
             table = document.getElementById("bowlftable")
             row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
@@ -356,7 +331,6 @@ function formonestoreValues() {
         var fieldValue = element.value;
         if (fieldValue !== ""){
             setCookie(fieldName, fieldValue, 3)
-            console.log("Set local storage of " + fieldName + "To " + fieldValue)
         }
     }
   }
@@ -414,7 +388,6 @@ function loadValues(){
                 element.click();
             }
         }
-        console.log(fieldName, fieldValue)
         if (fieldValue){
             element.value = fieldValue
         }
