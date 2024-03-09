@@ -274,6 +274,7 @@ function handletables() {
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
+            row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
@@ -283,8 +284,6 @@ function handletables() {
             if (totaloverstoballs === 0){ break;}
             totaloverstoballs --;
         }
-      //
-      //document.getElementById("comparison").innerHTML = `If Team A bats first and gives the target of ${target}then they will need to stop the Team B to ${stopvalueifbatfirst}!<br>If Team A bowls first they will need to chase this target of ${target} in ${stopvalueifbowlfirst}!` 
     } else{
         batfTeamARuns= parseInt(TeamARuns) + parseInt(target), batfTeamAOvers = parseFloat(TeamAOvers) + parseFloat(totalovers), batfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers), batfTeamARunsAgainst = parseInt(TeamARunsAgainst)
         runs = parseInt(target) +1
@@ -318,6 +317,7 @@ function handletables() {
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
+            row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
@@ -327,7 +327,6 @@ function handletables() {
             if (totaloverstoballs === 0){ break;}
             totaloverstoballs --;
         }
-           //document.getElementById("comparison").innerHTML = `If Team A bats first and gives the target of ${target} then they will need to stop the Opposing Team to ${stopvalueifbatfirst1}!<br>If Team A bowls first they will need to chase this target of ${target} in ${stopvalueifbowlfirst1}!`
 }
  }
 }
