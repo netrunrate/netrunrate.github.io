@@ -216,6 +216,8 @@ for (var i = 0; i < form.elements.length; i++) {
 function handletables() {
    mytbl = document.getElementById("batftable")
     mytbl.getElementsByTagName("tbody")[0].innerHTML= mytbl.rows[0].innerHTML
+    mytb = document.getElementById("bowlftable")
+    mytb.getElementsByTagName("tbody")[0].innerHTML
     form2 = document.forms["TeamAData"]
     target = form2["target"].value
     var form = document.forms["TeamAData"];
@@ -257,10 +259,10 @@ function handletables() {
             cell1.innerHTML= runs
             cell2.innerHTML= TeamANRR.toFixed(3)
             cell3.innerHTML=TeamBNRR.toFixed(3)
-            if (runs === 0){
+            if (runs == 0){
               break;
             }
-            runs --;
+            runs = runs - 1 ;
         }
         bowlfTeamARuns = parseInt(TeamARuns) + parseInt(target)+1, bowlfTeamAOvers = parseFloat(TeamAOvers), bowlfTeamARunsAgainst  = parseInt(TeamARunsAgainst) + parseInt(target), bowlfTeamAOversAgainst = parseFloat(TeamAOversAgainst) + parseFloat(totalovers)
         batfTeamBRuns = parseInt(TeamBRuns) + parseInt(target), batfTeamBOvers = parseFloat(TeamBOvers) + parseFloat(totalovers), batfTeamBRunsagainst = parseInt(TeamBRunsAgainst) + parseInt(target)+1, batfTeamBOversAgainst = parseFloat(TeamBOversAgainst)
@@ -272,7 +274,7 @@ function handletables() {
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
-            
+            var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             cell1.innerHTML= calculateBallsToOvers(totaloverstoball)
@@ -316,7 +318,7 @@ function handletables() {
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
             TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
-            
+            var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             cell1.innerHTML= calculateBallsToOvers(totaloverstoball)
