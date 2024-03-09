@@ -123,7 +123,6 @@ input[type=number]:hover {
 	background-color:#c62d1f;
 	border-radius:18px;
 	border:1px solid #d02718;
-	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
