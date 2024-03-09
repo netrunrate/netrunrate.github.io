@@ -120,6 +120,8 @@ input[type=number]:hover {
 #bl, #bt {
 	box-shadow: 3px 4px 19px 0px #8a2a21;
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	display: none;
+	visibility: hidden;
 	background-color:#c62d1f;
 	border-radius:18px;
 	border:1px solid #d02718;
