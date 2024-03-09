@@ -109,7 +109,14 @@ input[type=number] {
   padding: 1% 2%;
   transition: all 0.3s ease-in-out;
 }
-
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(198,78,78,1) 50%, rgba(252,176,69,1) 100%);}
+th {
+  background-color: #04AA6D;
+  color: white;
+}
 input[type=number]:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   transform: scale(1.05);
@@ -121,7 +128,6 @@ input[type=number]:hover {
 	box-shadow: 3px 4px 19px 0px #8a2a21;
 	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
 	display: none;
-	visibility: hidden;
 	background-color:#c62d1f;
 	border-radius:18px;
 	border:1px solid #d02718;
