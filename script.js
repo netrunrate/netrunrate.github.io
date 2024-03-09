@@ -361,19 +361,23 @@ function formonestoreValues() {
   }
 }
 
-function formonestoreValues() {
-  form = document.forms["NRRDATA"]
+function formtwostoreValues() {
+  form = document.forms["TeamAData"]
   for (var i = 0; i < form.elements.length; i++) {
     var element = form.elements[i];
 
     // Check if the element is not a button or a fieldset
-    if (element.type !== "button" && element.type !== "fieldset") {
+    if (element.type !== "fieldset") {
         // Access the field name and value
         var fieldName = element.name;
         var fieldValue = element.value;
-        if (fieldValue !== ""){
+        
+        if (fieldName == "checkmark"){
+            setCookie(fieldName, element.checked, 3)
+            
+        }
+        if (fieldValue !== "" && fieldName !== "checkmark"){
             setCookie(fieldName, fieldValue, 3)
-            console.log("Set local storage of " + fieldName + "To " + fieldValue)
         }
     }
   }
