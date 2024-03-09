@@ -88,8 +88,8 @@ function oversToBalls(overs) {
 let overs = 5.4; // Can handle decimal overs
 let ball = oversToBalls(overs);//console.log(ball); // Output: 42.6 (decimal due to decimal input)
 function handlecompare() {
-  document.getElementById('bl').style.visibility = "visible";
-  document.getElementById('bt').style.visibility = "visible";
+  document.getElementById('bl').style.display = "inline-block";
+  document.getElementById('bt').style.display = "inline-block";
     form2 = document.forms["TeamAData"]
     target = form2["target"].value
     var form = document.forms["TeamAData"];
