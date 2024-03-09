@@ -293,12 +293,13 @@ function handletables() {
         while (runs > 0){
         run = runs
             TeamANRR = calculateNetRunRate(batfTeamARuns, batfTeamAOvers ,  batfTeamARunsAgainst + run, batfTeamAOversAgainst)
-            TeamBNRR  = calculateNetRunRate(bowlfTeamBRuns + run, bowlfTeamBOvers , bowlfTeamBRunsAgainst, bowlfTeamBOversAgainst)
+            TeamBNRR  = calculateNetRunRate(TeamBRuns + run, TeamBOvers , TeamBRunsAgainst, TeamBOversAgainst)
             table = document.getElementById("batftable")
             row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
+            console.log("Adding")
             cell1.innerHTML= runs
             cell2.innerHTML= TeamANRR.toFixed(3)
             cell3.innerHTML=TeamBNRR.toFixed(3)
@@ -317,7 +318,7 @@ function handletables() {
         totaloverstoball = totaloverstoballs
             TeamANRR = calculateNetRunRate(bowlfTeamARuns,bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoball)), bowlfTeamARunsAgainst, bowlfTeamAOversAgainst)
             console.log(bowlfTeamAOvers + parseFloat(calculateBallsToOvers(totaloverstoballs)))
-            TeamBNRR = calculateNetRunRate(batfTeamBRuns,batfTeamBOvers,batfTeamBRunsagainst,batfTeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
+            TeamBNRR = calculateNetRunRate(TeamBRuns,TeamBOvers,TeamBRunsagainst,TeamBOversAgainst + parseFloat(calculateBallsToOvers(totaloverstoball)))
             table = document.getElementById("bowlftable")
             row = table.insertRow(-1)
             var cell1 = row.insertCell(0);
