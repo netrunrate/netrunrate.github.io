@@ -340,7 +340,7 @@ function formonestoreValues() {
     }
 
   }
-   window.history.replaceState(null, '', urlParams.href)
+   window.history.replaceState(null, '', urlParams.toString())
 }
 
 function formtwostoreValues() {
@@ -365,7 +365,7 @@ function formtwostoreValues() {
         }
     }
   }
-  window.history.replaceState(null, '', urlParams.href)
+  window.history.replaceState(null, '', urlParams.toString())
       
 }
 
