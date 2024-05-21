@@ -322,9 +322,10 @@ function getCookie(name) {
 
 function formonestoreValues() {
   form = document.forms["NRRDATA"]
+  let urlParams = new URLSearchParams(window.location.search);
   for (var i = 0; i < form.elements.length; i++) {
     var element = form.elements[i];
-    let urlParams = new URLSearchParams(window.location.search);
+    
     
     // Check if the element is not a button or a fieldset
     if (element.type !== "button" && element.type !== "fieldset") {
@@ -337,16 +338,16 @@ function formonestoreValues() {
             
         }
     }
-    window.history.replaceState(null, '', urlParams.toString())
 
   }
+   window.history.replaceState(null, '', urlParams.href)
 }
 
 function formtwostoreValues() {
   form = document.forms["TeamAData"]
+  let urlParams = new URLSearchParams(window.location.search);
   for (var i = 0; i < form.elements.length; i++) {
     var element = form.elements[i];
-    let urlParams = new URLSearchParams(window.location.search);
     // Check if the element is not a button or a fieldset
     if (element.type !== "fieldset") {
         // Access the field name and value
@@ -363,8 +364,9 @@ function formtwostoreValues() {
             urlParams.set(fieldName,fieldValue)
         }
     }
-    window.history.replaceState(null, '', urlParams.toString())
   }
+  window.history.replaceState(null, '', urlParams.href)
+      
 }
 
 
