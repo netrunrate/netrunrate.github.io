@@ -340,7 +340,7 @@ function formonestoreValues() {
     }
 
   }
-   window.history.replaceState(null, '', urlParams.toString())
+   window.history.replaceState(null, '', urlParams.toString().replace("io/","io?"))
 }
 
 function formtwostoreValues() {
@@ -365,7 +365,7 @@ function formtwostoreValues() {
         }
     }
   }
-  window.history.replaceState(null, '', urlParams.toString())
+  window.history.replaceState(null, '', urlParams.toString().replace("io/","io?"))
       
 }
 
