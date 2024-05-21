@@ -337,8 +337,7 @@ function formonestoreValues() {
             
         }
     }
-    history.pushState({}, '', urlParams.href)
-
+    window.location.search = urlParams
   }
 }
 
@@ -363,7 +362,7 @@ function formtwostoreValues() {
             urlParams.set(fieldName,fieldValue)
         }
     }
-    history.pushState({}, '', urlParams.href)
+    window.location.search = urlParams
   }
 }
 
